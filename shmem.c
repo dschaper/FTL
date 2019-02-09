@@ -93,7 +93,6 @@ void newOverTimeClient(int clientID) {
 	char *name = clientShmName(clientID);
 
 	// Create the shared memory with enough space for the current overTime slots
-	shm_unlink(name);
 	SharedMemory shm = create_shm(name, (counters->overTime/pagesize + 1)*pagesize*sizeof(int));
 	if(shm.ptr == NULL) {
 		free(shm.name);
